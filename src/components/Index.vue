@@ -67,6 +67,9 @@
                 interval = window.setInterval(() => {
                     vm.time = vm.time - 1;
                     if (vm.time <= 0) {
+                        if (interval) {
+                            window.clearInterval(interval);
+                        }
                         vm.started = false;
                         vm.gameEnded = true;
                     }
