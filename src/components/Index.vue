@@ -43,12 +43,16 @@
             const stage = 1;
             const browserHeight = (window.innerWidth || document.body.clientWidth || 800);
             const browserWidth = (window.innerWidth || document.body.clientWidth || 800);
+            let width = Math.min(browserHeight, browserWidth) * 0.9;
+            if (width > 800) {
+                width = 800;
+            }
             return {
                 started: false,
                 time: gameTime,
                 stage: stage,
                 colors: getNextColor(stage),
-                width: Math.min(browserHeight, browserWidth) * 0.7,
+                width,
                 gameEnded: false,
             }
         },
